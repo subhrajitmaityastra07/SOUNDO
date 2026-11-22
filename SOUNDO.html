@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><title>Soundo</title><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com/3.4.17"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary-fixed-variant": "#6a0baa", "surface-container-highest": "#31353f", "inverse-primary": "#00696f", "tertiary-fixed-dim": "#4edea3", "on-primary-container": "#006a70", "on-primary-fixed": "#002022", "outline-variant": "#3a494b", "on-primary": "#00373a", "inverse-surface": "#dfe2ef", "tertiary-container": "#67f4b7", "tertiary": "#e1ffec", "surface-dim": "#0f131c", "on-error-container": "#ffdad6", "error": "#ffb4ab", "secondary-container": "#6d11ad", "surface-container-lowest": "#0a0e17", "surface-container": "#1c1f29", "on-surface": "#dfe2ef", "primary-fixed": "#6ff6ff", "error-container": "#93000a", "tertiary-fixed": "#6ffbbe", "secondary-fixed": "#f2daff", "on-tertiary": "#003824", "inverse-on-surface": "#2c303a", "on-tertiary-container": "#006e4b", "primary": "#e0fdff", "on-surface-variant": "#b9cacb", "surface-container-high": "#262a34", "primary-container": "#00f2fe", "surface-variant": "#31353f", "on-secondary-fixed": "#2e004e", "surface-tint": "#00dce6", "surface-bright": "#353943", "on-background": "#dfe2ef", "on-primary-fixed-variant": "#004f53", "on-tertiary-fixed": "#002113", "surface-container-low": "#181b25", "secondary": "#e0b6ff", "on-secondary-container": "#d7a4ff", "background": "#0f131c", "surface": "#0f131c", "outline": "#849495", "on-tertiary-fixed-variant": "#005236", "on-secondary": "#4c007d", "secondary-fixed-dim": "#e0b6ff", "on-error": "#690005", "primary-fixed-dim": "#00dce6" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-sm": "0.5rem", "margin-tablet": "2rem", "margin": "1.25rem", "space-lg": "1.5rem", "space-xl": "2rem", "space-xs": "0.25rem", "gutter": "1rem", "gutter-sm": "0.75rem", "space-md": "1rem" }, "fontFamily": { "label-caps": ["JetBrains Mono"], "telemetry-lg": ["JetBrains Mono"], "body-sm": ["Inter"], "headline-sm": ["Space Grotesk"], "telemetry-md": ["JetBrains Mono"], "headline-lg": ["Space Grotesk"], "display-hero": ["Space Grotesk"], "headline-md": ["Space Grotesk"], "body-lg": ["Inter"], "body-md": ["Inter"], "display-hero-mobile": ["Space Grotesk"] }, "fontSize": { "label-caps": ["11px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "600" }], "telemetry-lg": ["20px", { "lineHeight": "24px", "letterSpacing": "-0.02em", "fontWeight": "500" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "headline-sm": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "500" }], "telemetry-md": ["13px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-lg": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "display-hero": ["56px", { "lineHeight": "60px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "headline-md": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "400" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "display-hero-mobile": ["44px", { "lineHeight": "48px", "letterSpacing": "-0.025em", "fontWeight": "700" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+    /* Liquid Glass Radial Propagation Rings */
+    @keyframes acousticRipple {
+      0% {
+        transform: translate(-50%, -50%) scale(0.72);
+        opacity: 0.85;
+      }
+      50% {
+        opacity: 0.35;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1.36);
+        opacity: 0;
+      }
+    }
+    .acoustic-ripple-1 {
+      animation: acousticRipple 3.6s cubic-bezier(0.2, 0.6, 0.35, 1) infinite;
+    }
+    .acoustic-ripple-2 {
+      animation: acousticRipple 3.6s cubic-bezier(0.2, 0.6, 0.35, 1) infinite 1.2s;
+    }
+    .acoustic-ripple-3 {
+      animation: acousticRipple 3.6s cubic-bezier(0.2, 0.6, 0.35, 1) infinite 2.4s;
+    }
+
+    /* Live Decibel Sensing Micro-pulse */
+    @keyframes dbGlowPulse {
+      0%, 100% {
+        text-shadow: 0 0 20px rgba(0, 242, 254, 0.35), 0 0 45px rgba(0, 242, 254, 0.15);
+        transform: scale(1);
+      }
+      50% {
+        text-shadow: 0 0 32px rgba(0, 242, 254, 0.6), 0 0 60px rgba(224, 182, 255, 0.3);
+        transform: scale(1.018);
+      }
+    }
+    .animate-db-glow {
+      animation: dbGlowPulse 2.4s ease-in-out infinite;
+    }
+
+    /* Subtle frequency bar oscillating fallback */
+    @keyframes eqFluctuate {
+      0%, 100% { transform: scaleY(1); }
+      50% { transform: scaleY(0.78); }
+    }
+    .eq-bar-dynamic {
+      transform-origin: bottom;
+      transition: height 0.12s cubic-bezier(0.2, 0.8, 0.4, 1);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .acoustic-ripple-1, .acoustic-ripple-2, .acoustic-ripple-3, .animate-db-glow {
+        animation: none !important;
+      }
+      .eq-bar-dynamic {
+        transition: none !important;
+      }
+    }
+  </style>
+</head><body class="bg-surface text-on-surface font-body-md text-body-md flex flex-col min-h-screen selection:bg-primary-container selection:text-on-primary-fixed"><header class="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/70 backdrop-blur-2xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm"><img alt="Soundo Logo" class="h-8 w-auto object-contain" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2300f2fe'/%3E%3Cstop offset='1' stop-color='%23e0b6ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='none' stroke='url(%23g)' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M5 16v0M10 11v10M16 6v20M22 11v10M27 16v0'/%3E%3C/g%3E%3C/svg%3E"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">Soundo</span><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest hidden sm:inline-block">Meter</span></div></div><div class="flex items-center gap-space-sm"><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container/60 backdrop-blur-md"><span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse shadow-[0_0_8px_#00f2fe]"></span><span class="font-label-caps text-label-caps text-primary tracking-wider uppercase">Research</span></div><div class="w-8 h-8 rounded-full p-0.5 bg-gradient-to-tr from-primary-container/40 to-secondary/30"><img alt="Profile" class="w-full h-full rounded-full object-cover" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231c1f29'/%3E%3Ccircle cx='16' cy='12' r='5' fill='%2300f2fe'/%3E%3Cpath d='M5 30c1-7 6-10 11-10s10 3 11 10z' fill='%23e0b6ff'/%3E%3C/svg%3E"/></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-28 bg-surface min-h-screen"><div class="flex flex-col w-full px-margin gap-space-lg select-none">
+<!-- Top Analytical Sub-header & Calibration Badge -->
+<section class="flex flex-col gap-space-xs pt-2">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container/60 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed shadow-[0_0_8px_#6ffbbe] animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-tertiary-fixed tracking-wider uppercase">IEC 61672-1 Class 1</span>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high/70 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+<span class="font-label-caps text-label-caps text-primary-fixed tracking-wider">dBA · FAST 125ms</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant px-1 mt-0.5">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary-container">location_on</span>
+<span class="font-telemetry-md text-telemetry-md text-on-surface-variant truncate">40.7128° N, 74.0060° W · Manhattan, NY</span>
+</div>
+<span class="font-telemetry-md text-telemetry-md text-tertiary-fixed-dim">±0.2 dB Calib</span>
+</div>
+</section>
+<!-- Central Hero Liquid Glass Decibel Vessel with Acoustic Ripple Dynamics -->
+<section id="heroMeter" class="cursor-pointer relative w-full rounded-full aspect-square max-w-[340px] mx-auto p-3 flex items-center justify-center bg-gradient-to-b from-surface-container-high/60 via-surface-container-low/80 to-surface-container-lowest/90 shadow-[0_24px_50px_-12px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.18)]">
+<!-- Radial Soundwave Propagation Rings (Liquid Glass Motion) -->
+<div class="absolute inset-0 pointer-events-none overflow-visible">
+<div class="acoustic-ripple-1 absolute top-1/2 left-1/2 w-full h-full rounded-full border border-primary-container/30 shadow-[0_0_24px_rgba(0,242,254,0.22),inset_0_0_15px_rgba(0,242,254,0.15)] backdrop-blur-[1px]"></div>
+<div class="acoustic-ripple-2 absolute top-1/2 left-1/2 w-full h-full rounded-full border border-secondary/25 shadow-[0_0_28px_rgba(224,182,255,0.18)] backdrop-blur-[1px]"></div>
+<div class="acoustic-ripple-3 absolute top-1/2 left-1/2 w-full h-full rounded-full border border-tertiary-fixed/20 shadow-[0_0_20px_rgba(111,251,190,0.15)]"></div>
+</div>
+<!-- Ambient Luminous Glow Orbs behind glass core -->
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 w-48 h-48 bg-primary-container/20 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-4 right-1/4 w-36 h-36 bg-secondary-container/30 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Outer Circular Radial Arc Visualizer Track -->
+<svg class="absolute inset-0 w-full h-full -rotate-90 pointer-events-none" viewbox="0 0 320 320">
+<defs>
+<lineargradient id="meterGlowGradient" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#00f2fe"></stop>
+<stop offset="65%" stop-color="#4edea3"></stop>
+<stop offset="100%" stop-color="#e0b6ff"></stop>
+</lineargradient>
+<filter height="140%" id="neonBlur" width="140%" x="-20%" y="-20%">
+<fegaussianblur result="blur" stddeviation="3"></fegaussianblur>
+<femerge>
+<femergenode in="blur"></femergenode>
+<femergenode in="SourceGraphic"></femergenode>
+</femerge>
+</filter>
+</defs>
+<!-- Base rail -->
+<circle class="text-surface-container-highest/40" cx="160" cy="160" fill="none" r="142" stroke="currentColor" stroke-dasharray="716" stroke-dashoffset="140" stroke-linecap="round" stroke-width="6"></circle>
+<!-- Active illuminated curve (approx 59.4dB of 120dB scale) -->
+<circle class="transition-all duration-300" cx="160" cy="160" fill="none" filter="url(#neonBlur)" id="meterGaugeStroke" r="142" stroke="url(#meterGlowGradient)" stroke-dasharray="716" stroke-dashoffset="374" stroke-linecap="round" stroke-width="7"></circle>
+</svg>
+<!-- Concentric Glass Heart -->
+<div class="relative w-full h-full rounded-full flex flex-col items-center justify-center p-6 bg-surface-container-lowest/80 backdrop-blur-3xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.12),0_10px_30px_rgba(0,0,0,0.5)] z-10">
+<!-- Top Zone Status Pill -->
+<div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-tertiary-container/10 shadow-[inset_0_1px_0_rgba(103,244,183,0.3)]">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed shadow-[0_0_6px_#67f4b7] animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-tertiary-fixed tracking-wider uppercase font-semibold">Moderate · Reading Room</span>
+</div>
+<!-- Main Live Decibel Number Display with Liquid Glow Dynamics -->
+<div class="flex flex-col items-center my-1">
+<div class="flex items-baseline tracking-tighter">
+<span class="font-display-hero text-display-hero text-primary font-bold animate-db-glow transition-all" id="liveDecibelVal">59.4</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest -mt-1">dB SPL (A)</span>
+</div>
+<!-- Compact 3-way Real-Time Acoustic Telemetry Strip -->
+<div class="w-full grid grid-cols-3 gap-1 pt-2.5 mt-1 border-none shadow-[inset_0_1px_0_rgba(255,255,255,0.07)]">
+<div class="flex flex-col items-center">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Min</span>
+<span class="font-telemetry-md text-telemetry-md text-primary font-medium">34.2</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Leq (Avg)</span>
+<span class="font-telemetry-md text-telemetry-md text-tertiary-fixed-dim font-medium">54.8</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Peak Max</span>
+<span class="font-telemetry-md text-telemetry-md text-secondary font-medium">81.6</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Dynamic Fluid Harmonic Waveform & FFT Spectrum Window -->
+<section class="flex flex-col gap-space-sm p-4 rounded-xl bg-surface-container/70 backdrop-blur-2xl shadow-[0_8px_24px_-4px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.08)]">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container shadow-[0_0_8px_#00f2fe] animate-pulse"></span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Spectral Stream</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-high px-2 py-0.5 rounded-full">
+<span class="font-label-caps text-label-caps text-primary-fixed">60 FPS</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">· FFT 1024</span>
+</div>
+</div>
+<!-- Responsive 60 FPS Multi-Harmonic Acoustic Wave Canvas -->
+<div class="relative w-full h-28 overflow-hidden rounded-lg bg-surface-container-lowest/90 shadow-[inset_0_2px_8px_rgba(0,0,0,0.6)] flex items-center justify-center">
+<!-- Frequency grid lines -->
+<div class="absolute inset-0 flex justify-between px-3 py-1 opacity-20 pointer-events-none z-10">
+<span class="font-label-caps text-label-caps text-on-surface-variant self-end">31Hz</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant self-end">250Hz</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant self-end">1kHz</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant self-end">4kHz</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant self-end">16kHz</span>
+</div>
+<!-- Peak Resonance Guideline -->
+<div class="absolute top-[28%] inset-x-0 border-b border-dashed border-error/30 pointer-events-none z-10"></div>
+<!-- High performance 60 FPS HTML5 Acoustic Wave Visualizer -->
+<canvas class="absolute inset-0 w-full h-full" id="acoustic-wave-canvas"></canvas>
+<!-- Overlaid Spectral Peak Badge -->
+<div class="absolute top-2 right-2 px-2 py-0.5 rounded-full bg-surface-container-high/85 backdrop-blur-md flex items-center gap-1.5 shadow-sm z-20 border border-white/5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-ping"></span>
+<span class="font-label-caps text-label-caps text-secondary-fixed">Dominant: 1.04 kHz</span>
+</div>
+</div>
+<!-- Dynamic 6-Band Frequency EQ Bars (Real-time oscillating fluctuation) -->
+<div class="grid grid-cols-6 gap-1.5 pt-1">
+<div class="flex flex-col gap-1 items-center">
+<div class="w-full bg-surface-container-high rounded-full h-8 flex items-end p-0.5">
+<div class="eq-bar-dynamic w-full bg-primary-container rounded-full h-[42%]" id="eq-bar-0"></div>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Sub</span>
+</div>
+<div class="flex flex-col gap-1 items-center">
+<div class="w-full bg-surface-container-high rounded-full h-8 flex items-end p-0.5">
+<div class="eq-bar-dynamic w-full bg-primary-container rounded-full h-[64%]" id="eq-bar-1"></div>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Low</span>
+</div>
+<div class="flex flex-col gap-1 items-center">
+<div class="w-full bg-surface-container-high rounded-full h-8 flex items-end p-0.5">
+<div class="eq-bar-dynamic w-full bg-primary-container rounded-full h-[88%] shadow-[0_0_8px_#00f2fe]" id="eq-bar-2"></div>
+</div>
+<span class="font-label-caps text-label-caps text-primary-fixed">Mid</span>
+</div>
+<div class="flex flex-col gap-1 items-center">
+<div class="w-full bg-surface-container-high rounded-full h-8 flex items-end p-0.5">
+<div class="eq-bar-dynamic w-full bg-secondary rounded-full h-[54%]" id="eq-bar-3"></div>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Presence</span>
+</div>
+<div class="flex flex-col gap-1 items-center">
+<div class="w-full bg-surface-container-high rounded-full h-8 flex items-end p-0.5">
+<div class="eq-bar-dynamic w-full bg-secondary rounded-full h-[36%]" id="eq-bar-4"></div>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">High</span>
+</div>
+<div class="flex flex-col gap-1 items-center">
+<div class="w-full bg-surface-container-high rounded-full h-8 flex items-end p-0.5">
+<div class="eq-bar-dynamic w-full bg-secondary-fixed rounded-full h-[22%]" id="eq-bar-5"></div>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Air</span>
+</div>
+</div>
+</section>
+<!-- NIOSH / WHO Dosimeter Exposure Threshold Tile -->
+<section class="flex flex-col gap-space-xs p-4 rounded-xl bg-surface-container/60 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.06)]">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-tertiary-fixed-dim">verified_user</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">NIOSH / WHO Acoustic Dose</span>
+</div>
+<span class="font-label-caps text-label-caps text-tertiary-container font-semibold">14% ACCUMULATED</span>
+</div>
+<!-- Inset Dosimeter Progress Rail -->
+<div class="relative w-full h-3 bg-surface-container-lowest rounded-full overflow-hidden p-0.5 shadow-inner">
+<div class="h-full bg-gradient-to-r from-tertiary-fixed-dim via-primary-container to-secondary rounded-full transition-all duration-500 shadow-[0_0_10px_#4edea3]" style="width: 14%;"></div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant pt-0.5">
+<span class="font-telemetry-md text-telemetry-md text-on-surface-variant">85 dBA Standard Criterion</span>
+<span class="font-telemetry-md text-telemetry-md text-primary font-medium">7h 46m Safe Allowance Left</span>
+</div>
+</section>
+<!-- Quick Spatial Location Tagger -->
+<section class="flex items-center justify-between gap-space-sm p-3 rounded-xl bg-surface-container-low/70 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center shrink-0 shadow-sm text-primary-container">
+<span class="material-symbols-outlined text-[20px]">add_location_alt</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Acoustic Station ID</span>
+<span class="font-body-md text-body-md text-on-surface font-medium truncate">Bryant Park Library · Reading Room</span>
+</div>
+</div>
+<button class="shrink-0 px-3 py-1.5 rounded-lg bg-surface-container-high/80 hover:bg-surface-bright text-on-surface transition-colors duration-200 flex items-center gap-1 shadow-sm">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-primary">Edit</span>
+<span class="material-symbols-outlined text-[16px] text-primary">chevron_right</span>
+</button>
+</section>
+<!-- Interactive Control Matrix & Primary Glass Neon Action -->
+<section class="flex flex-col gap-space-sm pt-1">
+<!-- Secondary Glass Action Trio -->
+<div class="grid grid-cols-3 gap-2">
+<!-- Weighting Segmented Selector -->
+<button class="flex flex-col items-center justify-center p-2.5 rounded-xl bg-surface-container/70 hover:bg-surface-container-high/80 backdrop-blur-lg shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] active:scale-95 transition-all" id="weightingToggleBtn">
+<span class="material-symbols-outlined text-[20px] text-primary-fixed mb-0.5">tune</span>
+<span class="font-label-caps text-label-caps text-on-surface uppercase">Filter (A)</span>
+<span class="font-label-caps text-[9px] text-on-surface-variant uppercase">Human Ear</span>
+</button>
+<!-- Octave View Switcher -->
+<button class="flex flex-col items-center justify-center p-2.5 rounded-xl bg-surface-container/70 hover:bg-surface-container-high/80 backdrop-blur-lg shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[20px] text-secondary mb-0.5">equalizer</span>
+<span class="font-label-caps text-label-caps text-on-surface uppercase">1/3 Octave</span>
+<span class="font-label-caps text-[9px] text-on-surface-variant uppercase">RTA Analysis</span>
+</button>
+<!-- Hold / Reset Peak Capture -->
+<button class="flex flex-col items-center justify-center p-2.5 rounded-xl bg-surface-container/70 hover:bg-surface-container-high/80 backdrop-blur-lg shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] active:scale-95 transition-all" id="peakHoldBtn">
+<span class="material-symbols-outlined text-[20px] text-tertiary-fixed mb-0.5">lock_clock</span>
+<span class="font-label-caps text-label-caps text-on-surface uppercase">Peak Hold</span>
+<span class="font-label-caps text-[9px] text-tertiary-fixed-dim uppercase">Armed (81.6)</span>
+</button>
+</div>
+<!-- Main Measure Trigger Button (Liquid Neon Obsidian Glass) -->
+<button class="w-full relative overflow-hidden group py-4 px-6 rounded-2xl bg-gradient-to-r from-primary-container via-surface-tint to-secondary shadow-[0_0_30px_rgba(0,242,254,0.38),inset_0_1px_1px_rgba(255,255,255,0.4)] active:scale-[0.98] transition-all flex items-center justify-center gap-2.5" id="logSampleBtn">
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/20 pointer-events-none"></div>
+<span class="material-symbols-outlined text-surface-container-lowest text-[24px]" style="font-variation-settings: 'FILL' 1;">bookmark_add</span>
+<span class="font-headline-sm text-headline-sm text-surface-container-lowest font-bold tracking-tight">Log Sample to Research Dossier</span>
+</button>
+</section>
+</div>
+<script>
+  // Dynamic Real-time Simulation & 60 FPS Fluid Wave Visualizer
+  (function () {
+    const decibelEl = document.getElementById('liveDecibelVal');
+    const gaugeStroke = document.getElementById('meterGaugeStroke');
+    const weightBtn = document.getElementById('weightingToggleBtn');
+    const canvas = document.getElementById('acoustic-wave-canvas');
+    const eqBars = [
+      document.getElementById('eq-bar-0'),
+      document.getElementById('eq-bar-1'),
+      document.getElementById('eq-bar-2'),
+      document.getElementById('eq-bar-3'),
+      document.getElementById('eq-bar-4'),
+      document.getElementById('eq-bar-5')
+    ];
+
+    let live = false;
+    let baseDb = 59.4;
+    let targetDb = 59.4;
+    let weightIndex = 0;
+    const weights = ['Filter (A)', 'Filter (C)', 'Filter (Z)'];
+    const weightDescs = ['Human Ear', 'Low Punch', 'Flat Zero'];
+
+    // Decibel jitter loop
+    setInterval(() => {
+      if (live) return;
+      const delta = (Math.random() - 0.48) * 1.6;
+      targetDb = Math.min(Math.max(targetDb + delta, 52.0), 65.5);
+    }, 420);
+
+    // Setup 60 FPS HTML5 Canvas Visualizer
+    let ctx = null;
+    let dpr = window.devicePixelRatio || 1;
+    let width = 0;
+    let height = 0;
+    let time = 0;
+
+    function resizeCanvas() {
+      if (!canvas) return;
+      const rect = canvas.getBoundingClientRect();
+      width = rect.width;
+      height = rect.height;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      ctx = canvas.getContext('2d');
+      ctx.scale(dpr, dpr);
+    }
+
+    if (canvas) {
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+    }
+
+    // High fidelity acoustic wave rendering loop
+    const eqBaseHeights = [42, 64, 88, 54, 36, 22];
+
+    function render(timestamp) {
+      time += 0.038;
+
+      // Smooth decibel interpolation
+      baseDb += (targetDb - baseDb) * 0.08;
+      if (decibelEl) {
+        decibelEl.textContent = baseDb.toFixed(1);
+      }
+
+      // Update circular meter gauge
+      if (gaugeStroke) {
+        const normalized = Math.min(1, Math.max(0, (baseDb - 30) / 70));
+        const offset = 580 - (normalized * 360);
+        gaugeStroke.setAttribute('stroke-dashoffset', offset.toFixed(0));
+      }
+
+      // Frequency bar oscillations
+      eqBars.forEach((bar, idx) => {
+        if (!bar) return;
+        const speed = 1.2 + idx * 0.4;
+        const osc = Math.sin(time * speed + idx) * 12 + Math.cos(time * 0.7 - idx) * 6;
+        const h = Math.max(12, Math.min(96, eqBaseHeights[idx] + osc));
+        bar.style.height = `${h.toFixed(1)}%`;
+      });
+
+      // Canvas multi-harmonic rendering
+      if (ctx && width && height) {
+        ctx.clearRect(0, 0, width, height);
+
+        const midY = height * 0.65;
+        const intensity = (baseDb - 40) / 30; // 0.4 ~ 0.85
+
+        // Secondary background harmonic wave (Neon Violet / Purple)
+        ctx.beginPath();
+        ctx.moveTo(0, height);
+        for (let x = 0; x <= width; x += 3) {
+          const normX = x / width;
+          const harmonic1 = Math.sin(normX * 9 - time * 1.5) * (14 * intensity);
+          const harmonic2 = Math.sin(normX * 18 + time * 2.2) * (8 * intensity);
+          // Bell curve envelope around 1kHz peak (approx x = 50%)
+          const envelope = Math.exp(-Math.pow((normX - 0.52) / 0.24, 2)) * 36 * intensity;
+          const y = midY - harmonic1 - harmonic2 - envelope;
+          ctx.lineTo(x, y);
+        }
+        ctx.lineTo(width, height);
+        ctx.closePath();
+
+        const gradSecondary = ctx.createLinearGradient(0, 0, 0, height);
+        gradSecondary.addColorStop(0, 'rgba(224, 182, 255, 0.22)');
+        gradSecondary.addColorStop(0.7, 'rgba(109, 17, 173, 0.12)');
+        gradSecondary.addColorStop(1, 'rgba(15, 19, 28, 0)');
+        ctx.fillStyle = gradSecondary;
+        ctx.fill();
+
+        ctx.strokeStyle = 'rgba(224, 182, 255, 0.65)';
+        ctx.lineWidth = 1.8;
+        ctx.stroke();
+
+        // Primary dynamic acoustic wave (Electric Cyan / Teal / Green)
+        ctx.beginPath();
+        ctx.moveTo(0, height);
+
+        const primaryPoints = [];
+        for (let x = 0; x <= width; x += 2) {
+          const normX = x / width;
+          const wave1 = Math.sin(normX * 8 - time * 2.1) * (18 * intensity);
+          const wave2 = Math.cos(normX * 14 + time * 1.7) * (9 * intensity);
+          const wave3 = Math.sin(normX * 28 - time * 3.4) * (4 * intensity);
+          // Resonance peak centered around mid frequencies (~1kHz)
+          const peakResonance = Math.exp(-Math.pow((normX - 0.50) / 0.18, 2)) * 52 * intensity;
+          const secondPeak = Math.exp(-Math.pow((normX - 0.82) / 0.14, 2)) * 26 * intensity;
+          const y = Math.min(height - 4, Math.max(16, midY - wave1 - wave2 - wave3 - peakResonance - secondPeak));
+          primaryPoints.push({ x, y });
+          ctx.lineTo(x, y);
+        }
+        ctx.lineTo(width, height);
+        ctx.closePath();
+
+        // Fill area gradient
+        const gradPrimary = ctx.createLinearGradient(0, 0, 0, height);
+        gradPrimary.addColorStop(0, 'rgba(0, 242, 254, 0.38)');
+        gradPrimary.addColorStop(0.4, 'rgba(78, 222, 163, 0.2)');
+        gradPrimary.addColorStop(0.8, 'rgba(109, 17, 173, 0.08)');
+        gradPrimary.addColorStop(1, 'rgba(15, 19, 28, 0)');
+        ctx.fillStyle = gradPrimary;
+        ctx.fill();
+
+        // Glow stroke path
+        ctx.beginPath();
+        primaryPoints.forEach((pt, i) => {
+          if (i === 0) ctx.moveTo(pt.x, pt.y);
+          else ctx.lineTo(pt.x, pt.y);
+        });
+
+        const strokeGrad = ctx.createLinearGradient(0, 0, width, 0);
+        strokeGrad.addColorStop(0, '#00f2fe');
+        strokeGrad.addColorStop(0.45, '#4edea3');
+        strokeGrad.addColorStop(0.75, '#c084fc');
+        strokeGrad.addColorStop(1, '#e0b6ff');
+
+        ctx.shadowColor = 'rgba(0, 242, 254, 0.75)';
+        ctx.shadowBlur = 8;
+        ctx.strokeStyle = strokeGrad;
+        ctx.lineWidth = 2.6;
+        ctx.stroke();
+
+        // Live resonant peak node indicator
+        const peakPt = primaryPoints[Math.floor(primaryPoints.length * 0.50)];
+        if (peakPt) {
+          ctx.shadowColor = '#00f2fe';
+          ctx.shadowBlur = 12;
+          ctx.fillStyle = '#ffffff';
+          ctx.beginPath();
+          ctx.arc(peakPt.x, peakPt.y, 3.8, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.strokeStyle = '#00f2fe';
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.arc(peakPt.x, peakPt.y, 6.5 + Math.sin(time * 6) * 2, 0, Math.PI * 2);
+          ctx.stroke();
+        }
+        ctx.shadowBlur = 0; // reset
+      }
+
+      requestAnimationFrame(render);
+    }
+
+    requestAnimationFrame(render);
+
+
+    // Tap the meter to use the real microphone (falls back to simulation if blocked)
+    const hero = document.getElementById('heroMeter');
+    if (hero) hero.addEventListener('click', async () => {
+      if (live) return;
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const ac = new (window.AudioContext || window.webkitAudioContext)();
+        const an = ac.createAnalyser();
+        an.fftSize = 1024;
+        ac.createMediaStreamSource(stream).connect(an);
+        const buf = new Float32Array(an.fftSize);
+        live = true;
+        setInterval(() => {
+          an.getFloatTimeDomainData(buf);
+          let sum = 0;
+          for (const v of buf) sum += v * v;
+          const rms = Math.sqrt(sum / buf.length) || 1e-5;
+          targetDb = Math.min(100, Math.max(25, 20 * Math.log10(rms) + 94));
+        }, 100);
+      } catch (e) { console.warn('Mic unavailable, staying in demo mode', e); }
+    });
+
+    // Interactive Weighting Toggle Micro-interaction
+    if (weightBtn) {
+      weightBtn.addEventListener('click', () => {
+        weightIndex = (weightIndex + 1) % weights.length;
+        const labelSpan = weightBtn.querySelector('.font-label-caps.text-on-surface');
+        const subSpan = weightBtn.querySelector('.font-label-caps.text-on-surface-variant');
+        if (labelSpan) labelSpan.textContent = weights[weightIndex];
+        if (subSpan) subSpan.textContent = weightDescs[weightIndex];
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe pointer-events-none" data-active-classes="text-primary-container [filter:drop-shadow(0_0_10px_rgba(0,242,254,0.45))] font-medium"><div class="mx-auto max-w-md px-margin pb-3 pointer-events-auto"><div class="h-16 px-space-sm rounded-full bg-surface-container-lowest/80 backdrop-blur-2xl shadow-[0_16px_40px_-8px_rgba(0,0,0,0.7)] flex items-center justify-around"><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 transition-all duration-300 text-primary-container [filter:drop-shadow(0_0_10px_rgba(0,242,254,0.45))] font-medium" data-path="meter" href="#"><span class="material-symbols-outlined text-[22px]">graphic_eq</span><span class="font-label-caps text-label-caps uppercase">Meter</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-on-surface transition-all duration-300" data-path="explore" href="#"><span class="material-symbols-outlined text-[22px]">travel_explore</span><span class="font-label-caps text-label-caps uppercase">Explore</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-on-surface transition-all duration-300" data-path="dossier" href="#"><span class="material-symbols-outlined text-[22px]">folder_special</span><span class="font-label-caps text-label-caps uppercase">Dossier</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-on-surface transition-all duration-300" data-path="archives" href="#"><span class="material-symbols-outlined text-[22px]">inventory_2</span><span class="font-label-caps text-label-caps uppercase">Archives</span></a></div></div></nav></body></html>
